@@ -154,5 +154,80 @@ body {
   </div>
 </div>
 
+<div class="vitrina-slide">
+  <div class="grid">
+    <div class="featured">
+      <img src="img/img2.webp">
+      <div>
+        <div class="title">Publicación 2</div>
+        <div class="subtitle">Descripción</div>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <img src="img/img3.webp">
+        <div>Publicación 3</div>
+      </div>
+
+      <div class="item">
+        <img src="img/img1.webp">
+        <div>Publicación 1</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vitrina-slide">
+  <div class="grid">
+    <div class="featured">
+      <img src="img/img3.webp">
+      <div>
+        <div class="title">Publicación 3</div>
+        <div class="subtitle">Descripción</div>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <img src="img/img1.webp">
+        <div>Publicación 1</div>
+      </div>
+
+      <div class="item">
+        <img src="img/img2.webp">
+        <div>Publicación 2</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  let current = 0;
+  const slides = document.querySelectorAll('.vitrina-slide');
+
+  // Validación (evita errores si no encuentra nada)
+  if (slides.length === 0) return;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  // Estado inicial
+  showSlide(current);
+
+  // Autoplay
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 6000); // más tiempo para leer
+
+});
+</script>
+
 </body>
 </html>
