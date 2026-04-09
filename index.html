@@ -10,55 +10,44 @@
 body {
   margin: 0;
   background: #ffffff;
+  font-family: 'Inter', sans-serif;
 }
 
-/* CONTENEDOR */
-.slider {
-  position: relative;
+.container {
   max-width: 1000px;
   margin: auto;
-  overflow: hidden;
+  padding: 30px 20px;
 }
 
-/* TRACK */
-.slides {
-  display: flex;
-  transition: transform 0.6s ease;
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
 }
 
-/* SLIDE */
-.slide {
-  min-width: 100%;
+/* DESTACADO */
+.featured {
   display: flex;
+  gap: 30px;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 30px;
-  box-sizing: border-box;
 }
 
-/* IMAGEN */
-.slide img {
-  max-height: 280px;
-  width: auto;
+.featured img {
+  max-height: 300px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* TEXTO */
-.overlay {
-  max-width: 400px;
-}
-
-.title {
+.featured .title {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 30px;
   color: #f05546;
 }
 
-.subtitle {
-  font-family: 'Inter', sans-serif;
+.featured .subtitle {
   font-size: 14px;
-  color: #333;
+  color: #444;
+  margin-top: 8px;
 }
 
 .button {
@@ -76,96 +65,79 @@ body {
   color: white;
 }
 
-/* BOTONES */
-.nav {
-  position: absolute;
-  top: 160px;
-  transform: translateY(-50%);
-  background: white;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  padding: 6px 10px;
-  font-size: 16px;
-  opacity: 0.8;
+/* LISTA DERECHA */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* MÁS CERCA DEL CONTENIDO */
-.prev { left: 40px; }
-.next { right: 40px; }
+.item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.item img {
+  height: 90px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.item .title {
+  font-size: 16px;
+  color: #f05546;
+  font-family: 'Playfair Display', serif;
+}
+
+.item .subtitle {
+  font-size: 12px;
+  color: #666;
+}
 
 </style>
 </head>
 
 <body>
 
-<div class="slider" id="slider">
-  <div class="slides" id="slides">
+<div class="container">
 
-    <!-- Slide 1 -->
-    <div class="slide">
+  <div class="grid">
+
+    <!-- DESTACADO -->
+    <div class="featured">
       <img src="img/img1.webp">
-      <div class="overlay">
+      <div>
         <div class="title">José Carlos Mariátegui o el "cojito genial"</div>
         <div class="subtitle">Historia y discapacidad en el Perú</div>
         <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación</a>
       </div>
     </div>
 
-    <!-- Slide 2 -->
-    <div class="slide">
-      <img src="img/img2.webp">
-      <div class="overlay">
-        <div class="title">La utopía andina</div>
-        <div class="subtitle">Europa y el país de los incas</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación</a>
-      </div>
-    </div>
+    <!-- SECUNDARIOS -->
+    <div class="list">
 
-    <!-- Slide 3 -->
-    <div class="slide">
-      <img src="img/img3.webp">
-      <div class="overlay">
-        <div class="title">La escena contemporánea</div>
-        <div class="subtitle">Edición facsimilar</div>
+      <div class="item">
+        <img src="img/img2.webp">
+        <div>
+          <div class="title">La utopía andina</div>
+          <div class="subtitle">Europa y el país de los incas</div>
+          <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación</a>
+        </div>
       </div>
+
+      <div class="item">
+        <img src="img/img3.webp">
+        <div>
+          <div class="title">La escena contemporánea</div>
+          <div class="subtitle">Edición facsimilar</div>
+        </div>
+      </div>
+
     </div>
 
   </div>
-</div>
-<!-- CONTROLES -->
-  <button class="nav prev" onclick="moveSlide(-1)">‹</button>
-  <button class="nav next" onclick="moveSlide(1)">›</button>
 
 </div>
-
-<script>
-let index = 0;
-const slides = document.getElementById('slides');
-const total = slides.children.length;
-
-function updateSlide() {
-  slides.style.transform = `translateX(-${index * 100}%)`;
-}
-
-function moveSlide(step) {
-  index = (index + step + total) % total;
-  updateSlide();
-}
-
-/* AUTOPLAY */
-let autoplay = setInterval(() => {
-  moveSlide(1);
-}, 5000);
-
-/* PAUSA AL PASAR EL MOUSE */
-document.getElementById('slider').addEventListener('mouseenter', () => {
-  clearInterval(autoplay);
-});
-
-document.getElementById('slider').addEventListener('mouseleave', () => {
-  autoplay = setInterval(() => moveSlide(1), 5000);
-});
-</script>
 
 </body>
 </html>
