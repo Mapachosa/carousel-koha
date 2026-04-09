@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
+  background: #f5f5f5;
 }
 
 .slider {
@@ -16,30 +19,67 @@ body {
 
 .slides {
   display: flex;
-  animation: slide 18s infinite;
+  animation: slide 20s infinite;
 }
 
 .slide {
   min-width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Imagen */
 .slide img {
   width: 100%;
-  height: 320px;
+  height: 340px;
   object-fit: cover;
+  filter: brightness(0.75);
 }
 
-.caption {
+/* Capa editorial */
+.overlay {
   position: absolute;
-  bottom: 15px;
-  left: 20px;
+  max-width: 900px;
+  width: 90%;
   color: white;
-  background: rgba(0,0,0,0.6);
-  padding: 6px 10px;
-  font-size: 14px;
 }
 
+/* Título principal */
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Botón */
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: 1px solid white;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: white;
+  color: black;
+}
+
+/* Animación */
 @keyframes slide {
   0% { transform: translateX(0%); }
   25% { transform: translateX(0%); }
@@ -60,19 +100,34 @@ body {
 <div class="slider">
   <div class="slides">
 
+    <!-- Slide 1 -->
     <div class="slide">
       <img src="img/img1.webp">
-      <div class="caption">utopia andina</div>
+      <div class="overlay">
+        <div class="title">Amauta N°1</div>
+        <div class="subtitle">Edición facsimilar — Archivo Mariátegui</div>
+        <a href="https://tusitio.com/pub1" class="button">Ver publicación</a>
+      </div>
     </div>
 
+    <!-- Slide 2 -->
     <div class="slide">
       <img src="img/img2.webp">
-      <div class="caption">cojito genial</div>
+      <div class="overlay">
+        <div class="title">Amauta N°2</div>
+        <div class="subtitle">Próximamente disponible</div>
+        <a href="#" class="button">Más información</a>
+      </div>
     </div>
 
+    <!-- Slide 3 -->
     <div class="slide">
       <img src="img/img3.webp">
-      <div class="caption">la escena contemporanea</div>
+      <div class="overlay">
+        <div class="title">Colección completa</div>
+        <div class="subtitle">Suscríbete a la serie completa</div>
+        <a href="#" class="button">Suscribirme</a>
+      </div>
     </div>
 
   </div>
