@@ -12,64 +12,63 @@ body {
   background: #ffffff;
 }
 
+/* CONTENEDOR */
 .slider {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
   overflow: hidden;
 }
 
+/* TRACK */
 .slides {
   display: flex;
-  animation: slide 20s infinite;
+  transition: transform 0.6s ease;
 }
 
+/* SLIDE */
 .slide {
   min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 40px;
+  padding: 30px;
   box-sizing: border-box;
 }
 
-/* Imagen */
+/* IMAGEN */
 .slide img {
   max-height: 280px;
   width: auto;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Contenedor de texto */
+/* TEXTO */
 .overlay {
   max-width: 400px;
 }
 
-/* Título */
 .title {
   font-family: 'Playfair Display', serif;
   font-size: 28px;
-  line-height: 1.2;
   color: #f05546;
-  margin-bottom: 10px;
 }
 
-/* Subtítulo */
 .subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #333;
 }
 
-/* Botón */
 .button {
   display: inline-block;
   margin-top: 15px;
   padding: 8px 14px;
   border: 1px solid #f05546;
-  text-decoration: none;
   color: #f05546;
+  text-decoration: none;
   font-size: 13px;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.3s ease;
 }
 
 .button:hover {
@@ -77,26 +76,28 @@ body {
   color: white;
 }
 
-/* Animación */
-@keyframes slide {
-  0% { transform: translateX(0%); }
-  30% { transform: translateX(0%); }
-
-  33% { transform: translateX(-100%); }
-  63% { transform: translateX(-100%); }
-
-  66% { transform: translateX(-200%); }
-  96% { transform: translateX(-200%); }
-
-  100% { transform: translateX(0%); }
+/* BOTONES */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 18px;
 }
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
 </style>
 </head>
 
 <body>
 
-<div class="slider">
-  <div class="slides">
+<div class="slider" id="slider">
+  <div class="slides" id="slides">
 
     <!-- Slide 1 -->
     <div class="slide">
@@ -129,6 +130,40 @@ body {
 
   </div>
 </div>
+<!-- CONTROLES -->
+  <button class="nav prev" onclick="moveSlide(-1)">‹</button>
+  <button class="nav next" onclick="moveSlide(1)">›</button>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById('slides');
+const total = slides.children.length;
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function moveSlide(step) {
+  index = (index + step + total) % total;
+  updateSlide();
+}
+
+/* AUTOPLAY */
+let autoplay = setInterval(() => {
+  moveSlide(1);
+}, 5000);
+
+/* PAUSA AL PASAR EL MOUSE */
+document.getElementById('slider').addEventListener('mouseenter', () => {
+  clearInterval(autoplay);
+});
+
+document.getElementById('slider').addEventListener('mouseleave', () => {
+  autoplay = setInterval(() => moveSlide(1), 5000);
+});
+</script>
 
 </body>
 </html>
