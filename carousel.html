@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+      }
+      .slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        animation: slide 15s infinite;
+      }
+      .slides img {
+        width: 100%;
+        height: auto;
+      }
+      @keyframes slide {
+        0% {
+          transform: translateX(0%);
+        }
+        33% {
+          transform: translateX(-100%);
+        }
+        66% {
+          transform: translateX(-200%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <img src="img1.jpg" loading="lazy" />
+        <img src="img2.jpg" loading="lazy" />
+        <img src="img3.jpg" loading="lazy" />
+      </div>
+    </div>
+  </body>
+</html>
