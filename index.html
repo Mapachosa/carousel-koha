@@ -7,91 +7,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  background: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 30px 20px;
-}
-
-/* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
+  position: relative;
 }
 
-/* DESTACADO */
+/* SLIDES (cada estado de la vitrina) */
+.vitrina-slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.vitrina-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* MEJOR ALINEACIÓN */
 .featured {
   display: flex;
-  gap: 30px;
-  align-items: center;
+  gap: 40px;
+  align-items: center; /* 👈 clave */
 }
 
+/* IMAGEN PRINCIPAL */
 .featured img {
-  max-height: 300px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-height: 320px;
 }
 
-.featured .title {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  color: #f05546;
-}
-
-.featured .subtitle {
-  font-size: 14px;
-  color: #444;
-  margin-top: 8px;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 14px;
-  border: 1px solid #f05546;
-  color: #f05546;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.button:hover {
-  background: #f05546;
-  color: white;
-}
-
-/* LISTA DERECHA */
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.item {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
+/* SECUNDARIOS MÁS GRANDES */
 .item img {
-  height: 90px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.item .title {
-  font-size: 16px;
-  color: #f05546;
-  font-family: 'Playfair Display', serif;
-}
-
-.item .subtitle {
-  font-size: 12px;
-  color: #666;
+  height: 120px; /* antes 90px */
 }
 
 </style>
