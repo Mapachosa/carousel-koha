@@ -1,48 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        margin: 0;
-      }
-      .slider {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-      .slides {
-        display: flex;
-        animation: slide 15s infinite;
-      }
-      .slides img {
-        width: 100%;
-        height: auto;
-      }
-      @keyframes slide {
-        0% {
-          transform: translateX(0%);
-        }
-        33% {
-          transform: translateX(-100%);
-        }
-        66% {
-          transform: translateX(-200%);
-        }
-        100% {
-          transform: translateX(0%);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="slider">
-      <div class="slides">
-        <img src="img/1093-CojitoGenial.webp" loading="lazy" />
-        <img src="img/1094_utopiaandina.webp" loading="lazy" />
-        <img src="img/img20250718_12463219.webp" loading="lazy" />
-      </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  animation: slide 18s infinite;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0%); }
+  25% { transform: translateX(0%); }
+
+  33% { transform: translateX(-100%); }
+  58% { transform: translateX(-100%); }
+
+  66% { transform: translateX(-200%); }
+  91% { transform: translateX(-200%); }
+
+  100% { transform: translateX(0%); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+  <div class="slides">
+
+    <div class="slide">
+      <img src="img/img1.webp">
+      <div class="caption">utopia andina</div>
     </div>
-  </body>
+
+    <div class="slide">
+      <img src="img/img2.webp">
+      <div class="caption">cojito genial</div>
+    </div>
+
+    <div class="slide">
+      <img src="img/img3.webp">
+      <div class="caption">la escena contemporanea</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
 </html>
