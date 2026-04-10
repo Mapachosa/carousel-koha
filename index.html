@@ -37,6 +37,7 @@ body {
   transform: translateX(20px); /* leve desplazamiento */
   transition: opacity 0.8s ease, transform 0.8s ease;
   pointer-events: none;
+  will-change: opacity, transform;
 }
 
 .vitrina-slide.active {
@@ -126,6 +127,10 @@ body {
   color: #666;
 }
 
+img {
+  will-change: transform, opacity;
+}
+
 </style>
 </head>
 
@@ -142,7 +147,9 @@ body {
       <div>
         <div class="title">José Carlos Mariátegui o el "cojito genial</div>
         <div class="subtitle">Historia y discapacidad en el Perú</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación</a>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación
+        <img src="img/img1.webp">
+        </a>
       </div>
     </div>
 
@@ -174,7 +181,9 @@ body {
       <div>
        <div class="title">La utopía andina</div>
         <div class="subtitle">Europa y el país de los incas</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación</a>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación
+        <img src="img/img2.webp">
+        </a>
       </div>
     </div>
 
@@ -233,7 +242,9 @@ body {
       <div>
         <div class="title">La revista <i>Amauta</i></div>
         <div class="subtitle">Edición facsimilar. Centenario</div>
-         <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button">Suscríbete</a>
+         <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button">Suscríbete
+        <img src="img/img4.webp">
+         </a>
       </div>
     </div>
 
