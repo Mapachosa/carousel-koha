@@ -53,16 +53,17 @@ body {
   align-items: center; /* 👈 clave */
 }
 
-/* IMAGEN PRINCIPAL */
-.featured img {
-  max-height: 320px;
-}
-
 /* SECUNDARIOS MÁS GRANDES */
 .item img {
   height: 120px; /* antes 90px */
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+/* Permitir clic en imágenes SIEMPRE */
+.vitrina-slide img,
+.vitrina-slide a {
+  pointer-events: auto;
+}
+
 /* DESTACADO */
 .featured {
   display: flex;
@@ -127,8 +128,15 @@ body {
   color: #666;
 }
 
+.item img {
+  height: 120px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
 img {
   will-change: transform, opacity;
+  cursor: pointer;
 }
 
 </style>
@@ -138,35 +146,34 @@ img {
 
 <div class="container">
 
-  <div class="vitrina-slide active">
+<!-- SLIDE 1 -->
+<div class="vitrina-slide active">
   <div class="grid">
 
-    <!-- DESTACADO -->
     <div class="featured">
-      <img src="img/img1.webp">
-      <div>
-        <div class="title">José Carlos Mariátegui o el "cojito genial</div>
-        <div class="subtitle">Historia y discapacidad en el Perú</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación
+      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093">
         <img src="img/img1.webp">
-        </a>
+      </a>
+      <div>
+        <div class="title">José Carlos Mariátegui o el “cojito genial”</div>
+        <div class="subtitle">Historia y discapacidad en el Perú</div>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación</a>
       </div>
     </div>
 
-    <!-- SECUNDARIOS -->
     <div class="list">
       <div class="item">
-        <img src="img/img2.webp">
+        <a href="#"><img src="img/img2.webp"></a>
         <div>La utopía andina</div>
       </div>
 
       <div class="item">
-        <img src="img/img3.webp">
+        <a href="#"><img src="img/img3.webp"></a>
         <div>La escena contemporánea</div>
       </div>
 
       <div class="item">
-        <img src="img/img4.webp">
+        <a href="#"><img src="img/img4.webp"></a>
         <div>La revista <i>Amauta</i></div>
       </div>
     </div>
@@ -174,42 +181,38 @@ img {
   </div>
 </div>
 
+<!-- SLIDE 2 -->
 <div class="vitrina-slide">
   <div class="grid">
+
     <div class="featured">
-      <img src="img/img2.webp">
-      <div>
-       <div class="title">La utopía andina</div>
-        <div class="subtitle">Europa y el país de los incas</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación
+      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094">
         <img src="img/img2.webp">
-        </a>
+      </a>
+      <div>
+        <div class="title">La utopía andina</div>
+        <div class="subtitle">Europa y el país de los incas</div>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación</a>
       </div>
     </div>
 
     <div class="list">
-      <div class="item">
-        <img src="img/img3.webp">
-        <div>La escena contemporánea</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img4.webp">
-        <div>La revista <i>Amauta</i></div>
-      </div>
-
-      <div class="item">
-        <img src="img/img1.webp">
-        <div>José Carlos Mariátegui o el "cojito genial</div>
-      </div>
+      <div class="item"><img src="img/img3.webp"></div>
+      <div class="item"><img src="img/img4.webp"></div>
+      <div class="item"><img src="img/img1.webp"></div>
     </div>
+
   </div>
 </div>
 
+<!-- SLIDE 3 -->
 <div class="vitrina-slide">
   <div class="grid">
+
     <div class="featured">
-      <img src="img/img3.webp">
+      <a href="#">
+        <img src="img/img3.webp">
+      </a>
       <div>
         <div class="title">La escena contemporánea</div>
         <div class="subtitle">Edición facsimilar</div>
@@ -217,56 +220,39 @@ img {
     </div>
 
     <div class="list">
-    <div class="item">
-        <img src="img/img4.webp">
-        <div>La revista <i>Amauta</i></div>
-      </div>
-
-      <div class="item">
-        <img src="img/img1.webp">
-        <div>José Carlos Mariátegui o el "cojito genial</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img2.webp">
-        <div>La utopía andina</div>
-      </div>
+      <div class="item"><img src="img/img4.webp"></div>
+      <div class="item"><img src="img/img1.webp"></div>
+      <div class="item"><img src="img/img2.webp"></div>
     </div>
-  </div>
-  </div>
 
-  <div class="vitrina-slide">
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="vitrina-slide">
   <div class="grid">
+
     <div class="featured">
-      <img src="img/img4.webp">
+      <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/">
+        <img src="img/img4.webp">
+      </a>
       <div>
         <div class="title">La revista <i>Amauta</i></div>
         <div class="subtitle">Edición facsimilar. Centenario</div>
-         <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button">Suscríbete
-        <img src="img/img4.webp">
-         </a>
+        <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button">Suscríbete</a>
       </div>
     </div>
 
     <div class="list">
-    <div class="item">
-        <img src="img/img1.webp">
-        <div>José Carlos Mariátegui o el "cojito genial"</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img2.webp">
-        <div>La utopía andina</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img3.webp">
-        <div>La escena contemporánea</div>
-      </div>
+      <div class="item"><img src="img/img1.webp"></div>
+      <div class="item"><img src="img/img2.webp"></div>
+      <div class="item"><img src="img/img3.webp"></div>
     </div>
+
   </div>
-  </div>
-</div> <!-- container -->
+</div>
+
+</div>
 
 <script>
 let current = 0;
