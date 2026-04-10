@@ -37,6 +37,13 @@ body {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.vitrina-slide {
+  position: absolute;
+  top: 0;        /* 👈 clave */
+  left: 0;       /* 👈 clave */
+  width: 100%;
+}
+
 .vitrina-slide.active {
   opacity: 1;
   transform: translateX(0);
