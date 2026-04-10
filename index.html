@@ -146,6 +146,8 @@ img {
 
 <div class="container">
 
+<div class="container">
+
 <!-- SLIDE 1 -->
 <div class="vitrina-slide active">
   <div class="grid">
@@ -163,17 +165,17 @@ img {
 
     <div class="list">
       <div class="item">
-        <a href="#"><img src="img/img2.webp"></a>
+        <img src="img/img2.webp" data-slide="1">
         <div>La utopía andina</div>
       </div>
 
       <div class="item">
-        <a href="#"><img src="img/img3.webp"></a>
+        <img src="img/img3.webp" data-slide="2">
         <div>La escena contemporánea</div>
       </div>
 
       <div class="item">
-        <a href="#"><img src="img/img4.webp"></a>
+        <img src="img/img4.webp" data-slide="3">
         <div>La revista <i>Amauta</i></div>
       </div>
     </div>
@@ -197,9 +199,18 @@ img {
     </div>
 
     <div class="list">
-      <div class="item"><img src="img/img3.webp"></div>
-      <div class="item"><img src="img/img4.webp"></div>
-      <div class="item"><img src="img/img1.webp"></div>
+      <div class="item">
+        <img src="img/img3.webp" data-slide="2">
+        <div>La escena contemporánea</div>
+      </div>
+      <div class="item">
+        <img src="img/img4.webp" data-slide="3">
+        <div>La revista <i>Amauta</i></div>
+      </div>
+      <div class="item">
+        <img src="img/img1.webp" data-slide="0">
+        <div>José Carlos Mariátegui o el “cojito genial”</div>
+      </div>
     </div>
 
   </div>
@@ -220,9 +231,18 @@ img {
     </div>
 
     <div class="list">
-      <div class="item"><img src="img/img4.webp"></div>
-      <div class="item"><img src="img/img1.webp"></div>
-      <div class="item"><img src="img/img2.webp"></div>
+      <div class="item">
+        <img src="img/img4.webp" data-slide="3">
+        <div>La revista <i>Amauta</i></div>
+      </div>
+      <div class="item">
+        <img src="img/img1.webp" data-slide="0">
+        <div>José Carlos Mariátegui o el “cojito genial”</div>
+      </div>
+      <div class="item">
+        <img src="img/img2.webp" data-slide="1">
+        <div>La utopía andina</div>
+      </div>
     </div>
 
   </div>
@@ -244,9 +264,18 @@ img {
     </div>
 
     <div class="list">
-      <div class="item"><img src="img/img1.webp"></div>
-      <div class="item"><img src="img/img2.webp"></div>
-      <div class="item"><img src="img/img3.webp"></div>
+      <div class="item">
+        <img src="img/img1.webp" data-slide="0">
+        <div>José Carlos Mariátegui o el “cojito genial”</div>
+      </div>
+      <div class="item">
+        <img src="img/img2.webp" data-slide="1">
+        <div>La utopía andina</div>
+      </div>
+      <div class="item">
+        <img src="img/img3.webp" data-slide="2">
+        <div>La escena contemporánea</div>
+      </div>
     </div>
 
   </div>
@@ -261,12 +290,26 @@ const slides = document.querySelectorAll('.vitrina-slide');
 function showSlide(index) {
   slides.forEach(s => s.classList.remove('active'));
   slides[index].classList.add('active');
+  current = index;
 }
 
-setInterval(() => {
+function nextSlide() {
   current = (current + 1) % slides.length;
   showSlide(current);
-}, 5000);
+}
+
+let interval = setInterval(nextSlide, 5000);
+
+// click en miniaturas
+document.querySelectorAll('[data-slide]').forEach(el => {
+  el.addEventListener('click', () => {
+    const index = parseInt(el.getAttribute('data-slide'));
+    showSlide(index);
+
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 5000);
+  });
+});
 </script>
 
 </body>
