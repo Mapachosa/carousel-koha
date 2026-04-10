@@ -31,19 +31,16 @@ body {
 
 /* SLIDES (cada estado de la vitrina) */
 .vitrina-slide {
-  position: absolute;
-  width: 100%;
+  pointer-events: auto;   /* 👈 SIEMPRE clickeable */
   opacity: 0;
-  transform: translateX(20px); /* leve desplazamiento */
+  transform: translateX(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  pointer-events: none;
-  will-change: opacity, transform;
 }
 
 .vitrina-slide.active {
   opacity: 1;
   transform: translateX(0);
-  pointer-events: auto;
+  z-index: 2; /* 👈 importante */
 }
 
 /* MEJOR ALINEACIÓN */
