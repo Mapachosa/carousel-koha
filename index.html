@@ -298,14 +298,16 @@ function nextSlide() {
 
 let interval = setInterval(nextSlide, 5000);
 
-// click en miniaturas
-document.querySelectorAll('[data-slide]').forEach(el => {
-  el.addEventListener('click', () => {
-    const index = parseInt(el.getAttribute('data-slide'));
-    showSlide(index);
+// 👇 CLICK EN MINIATURAS (SOLUCIÓN REAL)
+document.querySelectorAll('.item img').forEach(img => {
+  img.addEventListener('click', () => {
+    const index = parseInt(img.dataset.slide);
+    if (!isNaN(index)) {
+      showSlide(index);
 
-    clearInterval(interval);
-    interval = setInterval(nextSlide, 5000);
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 5000);
+    }
   });
 });
 </script>
