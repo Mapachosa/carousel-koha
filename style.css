@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+  position: relative;
+  min-height: 400px; /* 👈 clave */
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/* SLIDES (cada estado de la vitrina) */
+.vitrina-slide {
+  pointer-events: auto;   /* 👈 SIEMPRE clickeable */
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.vitrina-slide {
+  position: absolute;
+  top: 0;        /* 👈 clave */
+  left: 0;       /* 👈 clave */
+  width: 100%;
+}
+
+.vitrina-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2; /* 👈 importante */
+}
+
+/* MEJOR ALINEACIÓN */
+.featured {
+  display: flex;
+  gap: 40px;
+  align-items: center; /* 👈 clave */
+}
+
+/* SECUNDARIOS MÁS GRANDES */
+.item img {
+  height: 120px; /* antes 90px */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Permitir clic en imágenes SIEMPRE */
+.vitrina-slide img,
+.vitrina-slide a {
+  pointer-events: auto;
+}
+
+/* DESTACADO */
+.featured {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.featured img {
+  max-height: 300px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.featured .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #f05546;
+}
+
+.featured .subtitle {
+  font-size: 14px;
+  color: #444;
+  margin-top: 8px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: 1px solid #f05546;
+  color: #f05546;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.button:hover {
+  background: #f05546;
+  color: white;
+}
+
+/* LISTA DERECHA */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center; /* 👈 centra verticalmente */
+}
+
+.item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.item .title {
+  font-size: 16px;
+  color: #f05546;
+  font-family: 'Playfair Display', serif;
+}
+
+.item .subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.item img {
+  height: 120px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+img {
+  will-change: transform, opacity;
+  cursor: pointer;
+}

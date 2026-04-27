@@ -1,153 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  background: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 30px 20px;
-  position: relative;
-  min-height: 400px; /* 👈 clave */
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-  align-items: center;
-}
-
-/* SLIDES (cada estado de la vitrina) */
-.vitrina-slide {
-  pointer-events: auto;   /* 👈 SIEMPRE clickeable */
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.vitrina-slide {
-  position: absolute;
-  top: 0;        /* 👈 clave */
-  left: 0;       /* 👈 clave */
-  width: 100%;
-}
-
-.vitrina-slide.active {
-  opacity: 1;
-  transform: translateX(0);
-  z-index: 2; /* 👈 importante */
-}
-
-/* MEJOR ALINEACIÓN */
-.featured {
-  display: flex;
-  gap: 40px;
-  align-items: center; /* 👈 clave */
-}
-
-/* SECUNDARIOS MÁS GRANDES */
-.item img {
-  height: 120px; /* antes 90px */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-/* Permitir clic en imágenes SIEMPRE */
-.vitrina-slide img,
-.vitrina-slide a {
-  pointer-events: auto;
-}
-
-/* DESTACADO */
-.featured {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.featured img {
-  max-height: 300px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.featured .title {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  color: #f05546;
-}
-
-.featured .subtitle {
-  font-size: 14px;
-  color: #444;
-  margin-top: 8px;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 14px;
-  border: 1px solid #f05546;
-  color: #f05546;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.button:hover {
-  background: #f05546;
-  color: white;
-}
-
-/* LISTA DERECHA */
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  justify-content: center; /* 👈 centra verticalmente */
-}
-
-.item {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.item .title {
-  font-size: 16px;
-  color: #f05546;
-  font-family: 'Playfair Display', serif;
-}
-
-.item .subtitle {
-  font-size: 12px;
-  color: #666;
-}
-
-.item img {
-  height: 120px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  cursor: pointer;
-}
-
-img {
-  will-change: transform, opacity;
-  cursor: pointer;
-}
-
-</style>
-</head>
-
-<body>
-
+estructura)
 <div class="container">
 
 <!-- SLIDE 1 -->
@@ -155,31 +6,20 @@ img {
   <div class="grid">
 
     <div class="featured">
-      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093">
+      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" target="_blank">
         <img src="img/img1.webp">
       </a>
       <div>
-        <div class="title">José Carlos Mariátegui o el “cojito genial”</div>
+        <div class="title">José Carlos Mariátegui o el "cojito genial"</div>
         <div class="subtitle">Historia y discapacidad en el Perú</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button">Ver publicación</a>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093" class="button" target="_blank">Ver publicación</a>
       </div>
     </div>
 
     <div class="list">
-      <div class="item">
-        <img src="img/img2.webp" data-slide="1">
-        <div>La utopía andina</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img3.webp" data-slide="2">
-        <div>La escena contemporánea</div>
-      </div>
-
-      <div class="item">
-        <img src="img/img4.webp" data-slide="3">
-        <div>La revista <i>Amauta</i></div>
-      </div>
+      <div class="item"><img src="img/img2.webp" data-slide="1" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094"><div>La utopía andina</div></div>
+      <div class="item"><img src="img/img3.webp" data-slide="2" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1095"><div>La escena contemporánea</div></div>
+      <div class="item"><img src="img/img4.webp" data-slide="3" data-url="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/"><div>La revista <i>Amauta</i></div></div>
     </div>
 
   </div>
@@ -188,133 +28,66 @@ img {
 <!-- SLIDE 2 -->
 <div class="vitrina-slide">
   <div class="grid">
-
     <div class="featured">
-      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094">
+      <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" target="_blank">
         <img src="img/img2.webp">
       </a>
       <div>
         <div class="title">La utopía andina</div>
         <div class="subtitle">Europa y el país de los incas</div>
-        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button">Ver publicación</a>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094" class="button" target="_blank">Ver publicación</a>
       </div>
     </div>
 
     <div class="list">
-      <div class="item">
-        <img src="img/img3.webp" data-slide="2">
-        <div>La escena contemporánea</div>
-      </div>
-      <div class="item">
-        <img src="img/img4.webp" data-slide="3">
-        <div>La revista <i>Amauta</i></div>
-      </div>
-      <div class="item">
-        <img src="img/img1.webp" data-slide="0">
-        <div>José Carlos Mariátegui o el “cojito genial”</div>
-      </div>
+      <div class="item"><img src="img/img3.webp" data-slide="2" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1095"></div>
+      <div class="item"><img src="img/img4.webp" data-slide="3" data-url="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/"></div>
+      <div class="item"><img src="img/img1.webp" data-slide="0" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093"></div>
     </div>
-
   </div>
 </div>
 
 <!-- SLIDE 3 -->
 <div class="vitrina-slide">
   <div class="grid">
-
     <div class="featured">
-      <a href="#">
-        <img src="img/img3.webp">
-      </a>
+      <img src="img/img3.webp">
       <div>
         <div class="title">La escena contemporánea</div>
         <div class="subtitle">Edición facsimilar</div>
+        <a href="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1095" class="button" target="_blank">Ver publicación</a>
+      </div>
       </div>
     </div>
 
     <div class="list">
-      <div class="item">
-        <img src="img/img4.webp" data-slide="3">
-        <div>La revista <i>Amauta</i></div>
-      </div>
-      <div class="item">
-        <img src="img/img1.webp" data-slide="0">
-        <div>José Carlos Mariátegui o el “cojito genial”</div>
-      </div>
-      <div class="item">
-        <img src="img/img2.webp" data-slide="1">
-        <div>La utopía andina</div>
-      </div>
+      <div class="item"><img src="img/img4.webp" data-slide="3" data-url="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/"></div>
+      <div class="item"><img src="img/img1.webp" data-slide="0" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093"></div>
+      <div class="item"><img src="img/img2.webp" data-slide="1" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094"></div>
     </div>
-
   </div>
 </div>
 
 <!-- SLIDE 4 -->
 <div class="vitrina-slide">
   <div class="grid">
-
     <div class="featured">
-      <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/">
+      <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" target="_blank">
         <img src="img/img4.webp">
       </a>
       <div>
         <div class="title">La revista <i>Amauta</i></div>
         <div class="subtitle">Edición facsimilar. Centenario</div>
-        <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button">Suscríbete</a>
+        <a href="https://www.mariategui.org/2026/03/05/amauta-100-suscribete-a-la-edicion-facsimilar/" class="button" target="_blank">Suscríbete</a>
       </div>
     </div>
 
     <div class="list">
-      <div class="item">
-        <img src="img/img1.webp" data-slide="0">
-        <div>José Carlos Mariátegui o el “cojito genial”</div>
-      </div>
-      <div class="item">
-        <img src="img/img2.webp" data-slide="1">
-        <div>La utopía andina</div>
-      </div>
-      <div class="item">
-        <img src="img/img3.webp" data-slide="2">
-        <div>La escena contemporánea</div>
-      </div>
+      <div class="item"><img src="img/img1.webp" data-slide="0" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1093"></div>
+      <div class="item"><img src="img/img2.webp" data-slide="1" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1094"></div>
+      <div class="item"><img src="img/img3.webp" data-slide="2" data-url="https://bibliografia.mariategui.org/cgi-bin/koha/opac-detail.pl?biblionumber=1095"></div>
     </div>
-
   </div>
 </div>
 
 </div>
-
-<script>
-let current = 0;
-const slides = document.querySelectorAll('.vitrina-slide');
-
-function showSlide(index) {
-  slides.forEach(s => s.classList.remove('active'));
-  slides[index].classList.add('active');
-  current = index;
-}
-
-function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}
-
-let interval = setInterval(nextSlide, 5000);
-
-// 👇 CLICK EN MINIATURAS (SOLUCIÓN REAL)
-document.querySelectorAll('.item img').forEach(img => {
-  img.addEventListener('click', () => {
-    const index = parseInt(img.dataset.slide);
-    if (!isNaN(index)) {
-      showSlide(index);
-
-      clearInterval(interval);
-      interval = setInterval(nextSlide, 5000);
-    }
-  });
-});
-</script>
-
-</body>
-</html>
